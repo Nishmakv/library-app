@@ -9,24 +9,11 @@ class LoginScreen extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void saveDetails(BuildContext ctx) {
-    final String password = passwordController.text;
-
-    if (password.isNotEmpty && password.length >= 6) {
-      print('Password is valid');
-    } else {
-      ScaffoldMessenger.of(ctx).showSnackBar(
-        const SnackBar(
-          content: Text('Invalid password'),
-          duration: Duration(seconds: 3),
-        ),
-      );
-    }
-  }
+  void saveDetails(BuildContext ctx) {}
 
   @override
   Widget build(BuildContext context) {
-     double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     bool istablet = width > 700;
     return Scaffold(
       body: SafeArea(
@@ -58,11 +45,14 @@ class LoginScreen extends StatelessWidget {
                     hint: 'Enter password',
                     obscureText: true,
                     forgotPassword: true,
+                    password: true,
                   ),
+                  const SizedBox(height: 40),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(675, 55)),
+                        fixedSize: const Size(720, 55),
+                        backgroundColor: const Color(0xFF0073E6)),
                     child: Text(
                       'Login',
                       style: GoogleFonts.inter(

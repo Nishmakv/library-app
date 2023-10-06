@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       listener: (context, state) {
         if (state is BottomNavigationSuccess) {
           print("changed index");
-          _selectedIndex == 0 ? _selectedIndex = 1 : _selectedIndex = 0;
+         // _selectedIndex == 0 ? _selectedIndex = 1 : _selectedIndex = 0;
           setState(() {});
         }
       },

@@ -37,10 +37,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 20, top: 30),
-                          // child: Icon(Icons.arrow_back),
+                          padding: const EdgeInsets.only(top: 30),
                           child: IconButton(
                               onPressed: () {
                                 Navigator.of(context).pop(LoginScreen());
@@ -82,52 +82,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       label: 'Password',
                       hint: 'Enter password',
                       obscureText: true,
+                      password: true,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Row(
-                        children: [
-                          Checkbox(
-                              side: const BorderSide(color: Color(0x190A0A0A)),
-                              value: isChecked,
-                              onChanged: (value) {
-                                setState(() {
-                                  isChecked = value!;
-                                });
-                              }),
-                          Text(
-                            'I accept all',
+                    Row(
+                      children: [
+                        Checkbox(
+                            side: const BorderSide(color: Color(0x190A0A0A)),
+                            value: isChecked,
+                            onChanged: (value) {
+                              setState(() {
+                                isChecked = value!;
+                              });
+                            }),
+                        Text(
+                          'I accept all',
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              color: Color(0xFF1B1B1F),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Terms of use and privacy policy',
                             style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
-                                color: Color(0xFF1B1B1F),
-                                fontSize: 14,
                                 fontWeight: FontWeight.w500,
+                                fontSize: 14,
                               ),
                             ),
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Terms of use and privacy policy',
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    // const Text('I accept all use of terms and privacy policy'),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (ctx1) => OtpScreen()));
                       },
                       style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(690, 55),
+                        fixedSize: const Size(710, 55),
                         backgroundColor: const Color(0xFF0073E6),
                       ),
                       child: Text(
