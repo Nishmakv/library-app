@@ -11,7 +11,8 @@ class GridCard extends StatelessWidget {
       asset: 'assets/images/Group 30560 (2).png',
       name: Center(
         child: Padding(
-          padding: const EdgeInsets.only(right: 150, bottom: 60),
+          // padding: const EdgeInsets.only(right: 150, bottom: 60),
+          padding: EdgeInsets.all(0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -77,7 +78,8 @@ class GridCard extends StatelessWidget {
         asset: 'assets/images/Group 30563 (2).png',
         name: Center(
           child: Padding(
-            padding: const EdgeInsets.only(right: 150, bottom: 60),
+            // padding: const EdgeInsets.only(right: 150, bottom: 60),
+            padding: EdgeInsets.all(0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,

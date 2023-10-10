@@ -80,7 +80,8 @@ class _LoginCardState extends State<LoginCard> {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4)),
+                      borderRadius: BorderRadius.circular(4),
+                      ),
                   hintText: widget.hint,
                   contentPadding: const EdgeInsets.all(22),
                   hintStyle: GoogleFonts.inter(

@@ -26,8 +26,11 @@ class BookCard extends StatelessWidget {
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(asset),
-          const SizedBox(width: 20),
+          Image.asset(
+            asset,
+            height: 100,
+          ),
+          const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,7 +52,7 @@ class BookCard extends StatelessWidget {
                 style: GoogleFonts.roboto(
                   textStyle: const TextStyle(
                     color: Color.fromARGB(255, 109, 109, 109),
-                    fontSize: 17,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -61,13 +64,15 @@ class BookCard extends StatelessWidget {
                     text,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 180, 170, 112),
+                      fontSize: 15,
                     ),
                   ),
-                  const SizedBox(width: 13),
+                  const SizedBox(width: 5),
                   Text(
                     text1,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 180, 170, 112),
+                      fontSize: 15,
                     ),
                   ),
                 ],
@@ -76,7 +81,7 @@ class BookCard extends StatelessWidget {
           ),
         ],
       ),
-      trailing: const Icon(Icons.abc),
+      trailing: const Icon(Icons.bookmark),
     );
   }
 }

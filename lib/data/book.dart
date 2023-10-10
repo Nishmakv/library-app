@@ -13,7 +13,7 @@ class Book {
       required this.published,
       required this.text,
       required this.text1,
-      required this.icon});
+      required this.icon});           
 }
 
 List<Book> list = [

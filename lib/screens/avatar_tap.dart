@@ -1,19 +1,27 @@
+// import 'package:figma_app/bloc1/bloc/profile_bloc_bloc.dart';
+// import 'package:figma_app/model/profile_get_model.dart';
 import 'package:flutter/material.dart';
 import 'package:figma_app/widgets/latest_books.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class ProfileScreen extends StatelessWidget {
-  String asset;
-  String name;
-  String email;
+  int? id;
+  String? fname;
+  String? lname;
+  String? contact;
+  String? email;
+  String? image;
+  ProfileScreen(
+      {super.key,
+      required this.id,
+      required this.fname,
+      required this.lname,
+      required this.contact,
+      required this.email,
+      required this.image});
 
-  ProfileScreen({
-    super.key,
-    required this.asset,
-    required this.name,
-    required this.email,
-  });
-
+  // @override
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -22,8 +30,8 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        foregroundColor: Colors.blue,
-        title: Text(name),
+        foregroundColor: Colors.black,
+        title: Text(fname! + lname!),
         actions: const [
           Icon(
             Icons.search,
@@ -46,27 +54,35 @@ class ProfileScreen extends StatelessWidget {
                       height: 350,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 10),
-                        child: Image.asset(
-                          asset,
+                        child: Image.network(
+                          image!,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      name,
+                      fname! + lname!,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      contact!,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(email),
+                    Text(email!),
                     const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 82, 82, 82),
+                        backgroundColor:
+                            const Color.fromARGB(255, 82, 82, 82),
                       ),
                       child: const Text(
                         'Chat with author',

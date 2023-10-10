@@ -4,25 +4,24 @@ import 'package:equatable/equatable.dart';
 part 'bottom_navigation_event.dart';
 part 'bottom_navigation_state.dart';
 
-class BottomNavigationBloc
-    extends Bloc<BottomNavigationEvent, BottomNavigationState> {
-  BottomNavigationBloc() : super(const BottomNavigationInitial());
+class BottomNavigationBloc extends Bloc<LoginStateEvent, LoginState> {
+  BottomNavigationBloc() : super(const LoginStateInitial());
+  
   @override
-  Stream<BottomNavigationState> mapEventToState(
-    BottomNavigationEvent event,
+  Stream<LoginState> mapEventToState(LoginStateEvent event
   ) async* {
-    if (event is TabIndexChangeEvent) {
-      yield* tabIndexChange(event.changeIndex);
+    if (event is LoginProcess) {
+      yield* tabIndexChange(event.username,event.password);
     }
+    
   }
-  Stream<BottomNavigationState>tabIndexChange(bool? changeIndex)async*{
-    yield BottomNavigationLoading();
-    if(changeIndex==true){
-      yield BottomNavigationSuccess();
-    }
-    else{
-      yield BottomNavigationFailure();
-    }
 
+  Stream<LoginState> tabIndexChange(bool? userlogin,bool? passlogin) async* {
+    yield LoginStateLoading();
+    if (userlogin == true && passlogin==true) {
+      yield LoginStateSuccess();
+    } else {
+      yield LoginStateFailure();
+    }
   }
 }

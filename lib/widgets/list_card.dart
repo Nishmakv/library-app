@@ -30,7 +30,7 @@ class _ListCardWidgetState extends State<ListCardWidget> {
               widget.isSelected == true ? Border.all(color: Colors.red) : null,
         ),
         child: Image.asset(
-          widget.asset, 
+          widget.asset,
           fit: BoxFit.fill,
         ),
       ),

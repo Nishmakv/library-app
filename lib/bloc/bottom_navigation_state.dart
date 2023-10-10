@@ -1,19 +1,19 @@
 part of 'bottom_navigation_bloc.dart';
 
-abstract class BottomNavigationState extends Equatable{
+abstract class LoginState extends Equatable{
   
-  const BottomNavigationState();
+  const LoginState();
   @override
   List<Object>get props=>[];
 }
 
 
-final class BottomNavigationInitial extends BottomNavigationState {
-  const BottomNavigationInitial();
+final class LoginStateInitial extends LoginState {
+  const LoginStateInitial();
 }
 
- class BottomNavigationLoading extends BottomNavigationState {}
+ class LoginStateLoading extends LoginState  {}
 
- class BottomNavigationSuccess extends BottomNavigationState {}
+ class LoginStateSuccess extends LoginState {}
 
- class BottomNavigationFailure extends BottomNavigationState {}
+ class LoginStateFailure extends LoginState {}

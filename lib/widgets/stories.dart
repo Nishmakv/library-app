@@ -1,95 +1,155 @@
+import 'package:figma_app/bloc1/bloc/profile_bloc_bloc.dart';
 import 'package:figma_app/data/user.dart';
+import 'package:figma_app/model/profile_get_model.dart';
+import 'package:figma_app/model/profile_model.dart';
+import 'package:figma_app/screens/avatar_tap.dart';
 import 'package:flutter/material.dart';
 import 'package:figma_app/widgets/story_card.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+// import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 // ignore: must_be_immutable
-class StoryCard extends StatelessWidget {
+class StoryCard extends StatefulWidget {
   StoryCard({super.key});
-  List<User> list = [
-    User(
-        asset: 'assets/images/Rectangle 22035.png',
-        name: 'Marvin McKinney',
-        email: 'marvinauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 941.png',
-        name: 'Robert Fox',
-        email: 'robertauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 942 (2).png',
-        name: 'Devon Lane',
-        email: 'devonauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 943.png',
-        name: 'Kristin Watson',
-        email: 'kristinauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 944.png',
-        name: 'Jenny Wilson',
-        email: 'jennyauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 945 (1).png',
-        name: 'Bessie Cooper',
-        email: 'bessieauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 940.png',
-        name: 'Marvin McKinney ',
-        email: 'marvinauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 941.png',
-        name: 'Robert Fox',
-        email: 'robertauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 942.png',
-        name: 'Devon Lane',
-        email: 'devonauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 943.png',
-        name: 'Christina',
-        email: 'christinaauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 944.png',
-        name: 'Anjali Sharma',
-        email: 'anjaliauthor@gmail.com'),
-    User(
-        asset: 'assets/images/Ellipse 945 (1).png',
-        name: 'Catherine Sebastian',
-        email: 'catherinauthor@gmail.com')
-  ];
+
+  @override
+  State<StoryCard> createState() => _StoryCardState();
+}
+
+class _StoryCardState extends State<StoryCard> {
+  // Route _createRoute() {
+  //   return PageRouteBuilder(
+  //       pageBuilder: (context, animation, secondaryAnimation) => ProfileScreen(
+  //           id: employeeData!.id,
+  //           fname: employeeData!.fname,
+  //           lname: employeeData!.lname,
+  //           contact: employeeData!.contact,
+  //           email: employeeData!.email,
+  //           image: employeeData!.image),
+  //       transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  //         const begin = Offset(0.0, 1.0);
+  //         const end = Offset.zero;
+  //         const curve = Curves.ease;
+  //         var tween =
+  //             Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+  //         return SlideTransition(
+  //           position: animation.drive(tween),
+  //           child: child,
+  //         );
+  //       });
+  // }
+
+  List<ProfileModel> profileData = [];
+  int isSelectedIndex = -1;
+  // ProfileGetModel? employeeData;
+  @override
+  void initState() {
+    context.read<ProfileBlocBloc>().add(ListProfile());
+    super.initState();
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => ProfileScreen(
+            id: employeeData!.id,
+            fname: employeeData!.fname,
+            lname: employeeData!.lname,
+            contact: employeeData!.contact,
+            email: employeeData!.email,
+            image: employeeData!.image),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        });
+  }
+
+  ProfileGetModel? employeeData;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     bool istablet = width > 700;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Top Authors',
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 22,
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<ProfileBlocBloc, ProfileBlocState>(
+          listener: (context, state) {
+            if (state is ProfileBlocSuccess) {
+              setState(() {
+                profileData = state.profileData ?? [];
+              });
+            }
+          },
+        ),
+        BlocListener<ProfileBlocBloc, ProfileBlocState>(
+          listener: (context, state) {
+            if (state is GetEmployeeDetailsSuccess) {
+              print("listeningggg.......");
+              employeeData = state.employeeData;
+
+              PersistentNavBarNavigator.pushDynamicScreen(context,
+                  screen: _createRoute(), withNavBar: false);
+              // setState(() {
+              //   print(employeeData);
+              // });
+            }
+          },
+        ),
+        // BlocListener<ProfileBlocBloc, ProfileBlocState>(
+        // listener: (context, state) {
+        //   if (state is GetEmployeeDetailsSuccess) {
+        //     setState(() {
+        //       employeeData = state.employeeData;
+        //      PersistentNavBarNavigator.pushDynamicScreen(context,
+        //                       screen: _createRoute(), withNavBar: false);
+        //     });
+        //   }
+        // },
+        //  )
+      ],
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Top Authors',
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 22,
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          // height: istablet ? 150 : 100,
-          height: 200,
-          width: 1000,
-          child: Padding(
+          SizedBox(
+            // height: istablet ? 150 : 100,
+            height: 200,
+            width: 1000,
+            child: Padding(
               padding: const EdgeInsets.only(top: 10),
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return SizedBox(
-                      height: istablet ? 100 : 65,
-                      width: istablet ? 100 : 65,
-                      child: StoryCardWidget(
-                          asset: list[index].asset ?? '',
-                          name: list[index].name ?? '',
-                          email: list[index].email ?? ""),
-                    );
+                        height: istablet ? 100 : 65,
+                        width: istablet ? 100 : 65,
+                        child: StoryCardWidget(
+                          onTap: () {
+                            context
+                                .read<ProfileBlocBloc>()
+                                .add(ProfileGet(id: profileData[index].id));
+                            // setState(() {});
+                          },
+                          asset: profileData[index].image ?? "",
+                          name: profileData[index].name ?? '',
+                        ));
                   },
                   separatorBuilder: (context, index) {
                     return const SizedBox(
@@ -97,9 +157,11 @@ class StoryCard extends StatelessWidget {
                       // width: 2,
                     );
                   },
-                  itemCount: list.length)),
-        ),
-      ],
+                  itemCount: profileData.length),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

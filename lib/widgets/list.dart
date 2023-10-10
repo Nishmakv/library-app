@@ -33,9 +33,7 @@ class _ListCardState extends State<ListCard> {
 
   @override
   Widget build(BuildContext context) {
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
-
+   
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
