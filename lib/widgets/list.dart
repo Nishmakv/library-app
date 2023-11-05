@@ -33,7 +33,6 @@ class _ListCardState extends State<ListCard> {
 
   @override
   Widget build(BuildContext context) {
-   
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -42,14 +41,14 @@ class _ListCardState extends State<ListCard> {
           style: GoogleFonts.poppins(
             textStyle: const TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 22,
+              fontSize: 16,
             ),
           ),
         ),
         SizedBox(
           height: 100,
           child: Padding(
-            padding: const EdgeInsets.only(top: 0),
+            padding: const EdgeInsets.only(top: 8),
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {

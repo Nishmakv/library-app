@@ -124,16 +124,16 @@ class _StoryCardState extends State<StoryCard> {
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: 22,
+                fontSize: 16,
               ),
             ),
           ),
           SizedBox(
             // height: istablet ? 150 : 100,
-            height: 200,
+            height: 150,
             width: 1000,
             child: Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 0),
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
@@ -153,7 +153,7 @@ class _StoryCardState extends State<StoryCard> {
                   },
                   separatorBuilder: (context, index) {
                     return const SizedBox(
-                      width: 9,
+                      width: 15,
                       // width: 2,
                     );
                   },

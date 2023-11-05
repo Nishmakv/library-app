@@ -124,12 +124,12 @@ class HomeTab extends StatelessWidget {
         children: [
           //  const MyAppBar(),
           Padding(
-            padding: const EdgeInsets.only(top: 25),
+            padding: const EdgeInsets.only(top: 15),
             child: Text(
               'Welcome back',
               style: GoogleFonts.roboto(
                 textStyle: const TextStyle(
-                  fontSize: 45,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -139,7 +139,7 @@ class HomeTab extends StatelessWidget {
             'Jessica!',
             style: GoogleFonts.roboto(
               textStyle: const TextStyle(
-                fontSize: 45,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -151,7 +151,7 @@ class HomeTab extends StatelessWidget {
               textStyle: const TextStyle(
                 color: Color.fromARGB(255, 100, 100, 100),
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: 15,
               ),
             ),
           ),
@@ -162,7 +162,7 @@ class HomeTab extends StatelessWidget {
               textStyle: const TextStyle(
                 color: Color.fromARGB(255, 100, 100, 100),
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: 15,
               ),
             ),
           ),
@@ -173,15 +173,15 @@ class HomeTab extends StatelessWidget {
               textStyle: const TextStyle(
                 color: Color.fromARGB(255, 100, 100, 100),
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: 15,
               ),
             ),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           GridCard(),
-          const SizedBox(height: 50),
+          const SizedBox(height: 15),
           StoryCard(),
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
           const ListCard(),
         ],
       ),

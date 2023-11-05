@@ -74,7 +74,7 @@ class _StoryCardWidgetState extends State<StoryCardWidget> {
                 backgroundImage: NetworkImage(widget.asset),
               ),
             ),
-            const SizedBox(height: 15),
+            // const SizedBox(height: 10),
             SizedBox(
               width: 80,
               height: 35,
@@ -82,6 +82,7 @@ class _StoryCardWidgetState extends State<StoryCardWidget> {
                 widget.name,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 12,
                 ),
                 textAlign: TextAlign.center,
               ),

@@ -1,4 +1,5 @@
 import 'package:figma_app/bloc/login_bloc.dart';
+import 'package:figma_app/screens/home.dart';
 import 'package:figma_app/screens/home_screen.dart';
 import 'package:figma_app/screens/login_card.dart';
 import 'package:figma_app/screens/register_screen.dart';
@@ -106,8 +107,10 @@ class LoginScreen extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
+                              // Navigator.of(context).push(MaterialPageRoute(
+                              //     builder: (ctx1) => const RegisterScreen()));
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx1) => const RegisterScreen()));
+                                  builder: (ctx1) => const HomeScreen()));
                             },
                             child: Text(
                               'Sign Up',

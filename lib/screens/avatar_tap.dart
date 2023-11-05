@@ -2,6 +2,7 @@
 // import 'package:figma_app/model/profile_get_model.dart';
 import 'package:flutter/material.dart';
 import 'package:figma_app/widgets/latest_books.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
@@ -51,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(height: 30),
                     SizedBox(
                       width: 250,
-                      height: 350,
+                      height: 250,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Image.network(
@@ -81,12 +82,14 @@ class ProfileScreen extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 82, 82, 82),
+                        backgroundColor: const Color.fromARGB(255, 82, 82, 82),
                       ),
-                      child: const Text(
-                        'Chat with author',
-                      ),
+                      child: Text('Chat with author',
+                          style: GoogleFonts.nunitoSans(
+                              textStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ))),
                     ),
                   ],
                 ),

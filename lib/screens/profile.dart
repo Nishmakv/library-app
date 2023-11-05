@@ -36,32 +36,35 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               // const MyAppBar2(),
-              const SizedBox(height: 150),
+              const SizedBox(height: 80),
               //empty space from the top
               SizedBox(
-                height: 270,
-                width: 230,
+                height: 250,
+                width: 208,
                 child: Stack(
                   children: [
                     SizedBox(
-                      height: 250,
+                      // height: 250,
+                      height: 210,
                       width: 200,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
                           'assets/images/Rectangle 21484.png',
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
                     const Positioned(
-                      top: 210,
-                      left: 170,
+                      // top: 210,
+                      top: 175,
+                      // left: 170,
+                      left: 160,
                       child: CircleAvatar(
-                        radius: 28,
+                        radius: 25,
                         backgroundColor: Colors.white,
                         child: CircleAvatar(
-                          radius: 25,
+                          radius: 22,
                           backgroundColor: Colors.black,
                           child: Icon(
                             Icons.add_a_photo,
@@ -74,13 +77,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 0),
                 child: Text(
                   'Anjali Sharma',
                   style: GoogleFonts.roboto(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 20,
                     ),
                   ),
                 ),
@@ -92,17 +95,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   style: GoogleFonts.roboto(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                   ),
                 ),
               ),
               // Padding(
               //   padding: const EdgeInsets.only(top: 12),
-
+              const SizedBox(height: 15),
               Container(
-                width: 250,
-                height: 30,
+                width: 200,
+                height: 35,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color.fromARGB(255, 244, 244, 244),
@@ -110,7 +113,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 child: const Center(
                   child: Text(
                     'anjalisharma1@gmail.com',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
                   ),
                 ),
               ),

@@ -15,7 +15,7 @@ class GridCard extends StatelessWidget {
           padding: EdgeInsets.all(0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Top 10',
@@ -23,7 +23,7 @@ class GridCard extends StatelessWidget {
                   textStyle: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: 23,
                   ),
                 ),
                 textAlign: TextAlign.left,
@@ -34,7 +34,7 @@ class GridCard extends StatelessWidget {
                   textStyle: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: 23,
                   ),
                 ),
                 textAlign: TextAlign.left,
@@ -66,7 +66,7 @@ class GridCard extends StatelessWidget {
                 textStyle: const TextStyle(
                   color: Color.fromARGB(255, 124, 83, 84),
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 19,
                 ),
               ),
             ),
@@ -82,7 +82,7 @@ class GridCard extends StatelessWidget {
             padding: EdgeInsets.all(0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Top 10',
@@ -90,7 +90,7 @@ class GridCard extends StatelessWidget {
                     textStyle: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 23,
                     ),
                   ),
                 ),
@@ -101,7 +101,7 @@ class GridCard extends StatelessWidget {
                     textStyle: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 23,
                     ),
                   ),
                 ),
@@ -130,7 +130,7 @@ class GridCard extends StatelessWidget {
                 style: TextStyle(
                   color: Color.fromARGB(255, 124, 83, 84),
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 19,
                 ),
               ),
             ],
@@ -151,13 +151,13 @@ class GridCard extends StatelessWidget {
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: 22,
+                fontSize: 16,
               ),
             ),
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 10,
         ),
         SizedBox(
           height: deviceWidth / 1.6,
