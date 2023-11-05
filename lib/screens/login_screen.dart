@@ -25,8 +25,8 @@ class LoginScreen extends StatelessWidget {
               duration: Duration(seconds: 3),
             ),
           );
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (ctx) => const HomeScreen()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (ctx) => const HomeScreen()));
         } else if (state is LoginFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -38,92 +38,94 @@ class LoginScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      'Welcome back!',
-                      style: GoogleFonts.inter(
-                        textStyle: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 22,
-                          color: Color(0xFF1B1B1F),
-                          height: 2,
-                        ),
-                      ),
-                    ),
-                    LoginCard(
-                      controller: emailController,
-                      label: 'Email Address',
-                      hint: 'Enter email address',
-                    ),
-                    LoginCard(
-                      controller: passwordController,
-                      label: 'Password',
-                      hint: 'Enter password',
-                      obscureText: true,
-                      forgotPassword: true,
-                      password: true,
-                    ),
-                    const SizedBox(height: 40),
-                    ElevatedButton(
-                      onPressed: () {
-                        context.read<LoginBloc>().add(LoginProcess(
-                            username: emailController.text,
-                            password: passwordController.text));
-                      },
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(720, 55),
-                          backgroundColor: const Color(0xFF0073E6)),
-                      child: Text(
-                        'Login',
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'Welcome back!',
                         style: GoogleFonts.inter(
                           textStyle: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                            color: Color(0xFF1B1B1F),
+                            height: 2,
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'New to sidra Store?',
-                          style: GoogleFonts.poppins(
+                      LoginCard(
+                        controller: emailController,
+                        label: 'Email Address',
+                        hint: 'Enter email address',
+                      ),
+                      LoginCard(
+                        controller: passwordController,
+                        label: 'Password',
+                        hint: 'Enter password',
+                        obscureText: true,
+                        forgotPassword: true,
+                        password: true,
+                      ),
+                      const SizedBox(height: 40),
+                      ElevatedButton(
+                        onPressed: () {
+                          context.read<LoginBloc>().add(LoginProcess(
+                              username: emailController.text,
+                              password: passwordController.text));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(720, 55),
+                            backgroundColor: const Color(0xFF0073E6)),
+                        child: Text(
+                          'Login',
+                          style: GoogleFonts.inter(
                             textStyle: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: Color(0xFF1B1B1F),
                             ),
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx1) => const RegisterScreen()));
-                          },
-                          child: Text(
-                            'Sign Up',
+                      ),
+                      const SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'New to sidra Store?',
                             style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
-                                fontSize: 14,
-                                color: Color(0xFF0073E6),
                                 fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                                color: Color(0xFF1B1B1F),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                )
-              ],
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx1) => const RegisterScreen()));
+                            },
+                            child: Text(
+                              'Sign Up',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 14,
+                                  color: Color(0xFF0073E6),
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

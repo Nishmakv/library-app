@@ -9,7 +9,7 @@ part 'profile_bloc_event.dart';
 part 'profile_bloc_state.dart';
 
 class ProfileBlocBloc extends Bloc<ProfileBlocEvent, ProfileBlocState> {
-  ProfileDataSource user1 = ProfileDataSource();
+  ProfileDataSource user1 = ProfileDataSource(); 
   EmployeeDataSource user2=EmployeeDataSource();
   ProfileBlocBloc() : super(ProfileBlocInitial());
   @override
