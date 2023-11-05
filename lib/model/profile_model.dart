@@ -8,7 +8,7 @@ class ProfileModel extends Equatable{
  final int? id;
  @JsonKey(name: "name")
  final String? name;
- @JsonKey(name: "image")
+ @JsonKey(name: "imagegit")
  final String? image;
  
  
